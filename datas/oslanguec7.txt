@@ -1,0 +1,29 @@
+English (Australia) : en_AU
+English (Botswana) : en_BW
+English (Canada) : en_CA
+English (Denmark) : en_DK
+English (Great Britain) : en_GB
+English (Honk Kong) : en_HK
+English (India) : en_IN
+English (Ireland) : en_IE
+English (New Zealand) : en_NZ
+English (Philippines) : en_PH
+English (Singapore) : en_SG
+English (South Africa) : en_ZA
+English (USA) : en_US
+English (Zimbabwe) : en_ZW
+Francais (Belge) : fr_BE
+Francais (Canada) : fr_CA
+Francais (France) : fr_FR
+Francais (Luxembourg) : fr_LU
+Francais (Suisse) : fr_CH
+Francais (Occitan) : oc_FR
+German (Austria) : de_AT
+German (Belgium) : de_BE
+German (Deutch) : de_DE
+German (Luxembourg) : de_LU
+German (Switzerland) : de_CH
+Low German (Germany Deutch) : nds_DE
+Portugese (Brasil) : pt_BR
+Portugese (Portugal - Português) : pt_PT
+Spanish (Spain) : es_ES

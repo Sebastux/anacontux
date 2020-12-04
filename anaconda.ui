@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mw_anaconda</class>
+ <widget class="QMainWindow" name="mw_anaconda">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1050</width>
+    <height>509</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Générateur de fichiers d'auto réponse Red Hat v 1.0.0</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>images/Tuxicon.ico</normaloff>images/Tuxicon.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tab_anacontux">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1051</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>10</number>
+    </property>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Config base</string>
+     </attribute>
+     <widget class="QGroupBox" name="gb_configBase">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>210</y>
+        <width>971</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Configuration avancée</string>
+      </property>
+      <widget class="QLabel" name="lbl_langueos">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>32</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Langue du système :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_clavier">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>72</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clavier :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_fuseaux">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>112</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Fuseau horaire :</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="cb_gmt">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>110</y>
+         <width>91</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string extracomment="Configure lheure sur le fuseau GMT."/>
+       </property>
+       <property name="text">
+        <string>Heure GMT</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_langueos">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>30</y>
+         <width>380</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choix de la langue du système&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Anglais (UK)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Anglais (US)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Anglais (international)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Allemand (Allemagne)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Espagnol (Espagne)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string extracomment="Fancais France">Francais (France)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string extracomment="Fancais Belge">Francais (Belgique)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Italien (Italie)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Portugais (Portugal)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string extracomment="Installer le système en portugais brésilien">Portugais (Brésilien)</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cbx_clavier">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>380</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choix du type de clavier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_fuseaux">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>110</y>
+         <width>380</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choix du fuseau horaire ou est installée la machine.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Africa/Abidjan</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Africa/Accra</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>America/Adak</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>America/Anchorage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Antarctica/Casey</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Antarctica/Davis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Asia/Almaty</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Asia/Amman</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Atlantic/Azores</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Atlantic/Bermuda</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Australia/Adelaide</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Australia/Brisbane</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Europe/Berlin</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Europe/Brussels</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Europe/Monaco</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Europe/Paris</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Indian/Chagos</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Indian/Christmas</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Pacific/Apia</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Pacific/Auckland</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UTC</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QGroupBox" name="gbx_PasswdRoot">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>371</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Mot de passe root</string>
+       </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>32</y>
+          <width>100</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mot de passe : </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_verifPassword">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>72</y>
+          <width>100</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Vérification : </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edt_verifPassword">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>70</y>
+          <width>250</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Confirmer la saise du mot de passe root."/>
+        </property>
+        <property name="maxLength">
+         <number>20</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="dragEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edt_password">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>30</y>
+          <width>250</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Créer le mot de passe root"/>
+        </property>
+        <property name="maxLength">
+         <number>20</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QCheckBox" name="cb_chiffrePasswd">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>170</y>
+         <width>191</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string extracomment="Le mot de passe sera chiffré puis sauvegarder dans le fichier d'auto réponse. "/>
+       </property>
+       <property name="text">
+        <string>Chiffrer le mot de passe.</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="cb_affichePasswd">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>210</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string extracomment="Affiche le mot de passe en clair au lieu d'afficher des points."/>
+       </property>
+       <property name="text">
+        <string>Afficher le mot de passe.</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="gb_configAvance">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>971</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Configuration de base</string>
+      </property>
+      <widget class="QGroupBox" name="gb_distribution">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>171</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Choix de la distribution :</string>
+       </property>
+       <widget class="QRadioButton" name="rb_centos7">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>20</y>
+          <width>106</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Centos 7.X</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">bg_distribution</string>
+        </attribute>
+       </widget>
+       <widget class="QRadioButton" name="rb_centos8">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>80</y>
+          <width>106</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Centos 8.X</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">bg_distribution</string>
+        </attribute>
+       </widget>
+       <widget class="QRadioButton" name="rb_fedora">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>140</y>
+          <width>151</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fedora 3X server</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">bg_distribution</string>
+        </attribute>
+       </widget>
+       <widget class="QRadioButton" name="rb_c7netinstall">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>50</y>
+          <width>161</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Centos 7.x netinstall</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">bg_distribution</string>
+        </attribute>
+       </widget>
+       <widget class="QRadioButton" name="rb_c8netinstall">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>110</y>
+          <width>161</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Centos 8.x netinstall</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">bg_distribution</string>
+        </attribute>
+       </widget>
+      </widget>
+      <widget class="QLineEdit" name="edt_UrlDepot">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>100</y>
+         <width>741</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_installation">
+     <attribute name="title">
+      <string>Installation</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_boot">
+     <attribute name="title">
+      <string>Boot</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_partitions">
+     <attribute name="title">
+      <string>Partitions</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_reseau">
+     <attribute name="title">
+      <string>Reseau</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_authentification">
+     <attribute name="title">
+      <string>Authentification</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_PareFeu">
+     <attribute name="title">
+      <string>Pare-feu</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_affichage">
+     <attribute name="title">
+      <string>Affichage</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_packages">
+     <attribute name="title">
+      <string>Packages</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_PreInstallation">
+     <attribute name="title">
+      <string>Pré-installation</string>
+     </attribute>
+     <widget class="QGroupBox" name="gb_InterpreteurPreInstall">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>231</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Choisir un interpréteur</string>
+      </property>
+      <widget class="QRadioButton" name="rb_PreAucun">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Aucun</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PreBash">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bash</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PrePython2">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>30</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Python 2</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PrePython3">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>50</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Python 3</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PrePerl">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>30</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Perl</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PreAutre">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Autre</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="lbl_PreInsertion">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>80</y>
+        <width>461</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Inserez ici la liste vos commandes de pré installation.</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="ptedt_PreListeCommandes">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>1051</width>
+        <height>361</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="edt_PreInstall">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>40</y>
+        <width>201</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="gb_PreRpmFusion">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>10</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Dépots RPM Fusion</string>
+      </property>
+      <widget class="QRadioButton" name="rb_PreRpmFree">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>20</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Dépot free</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PreRpmFusion</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="rb_PreRpmNonFree">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Dépot non free</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PreRpmFusion</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="rb_PreDeux">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>20</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Les deux</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PreRpmFusion</string>
+       </attribute>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="cb_PreEpel">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>10</y>
+        <width>171</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Installer le dépot EPEL.</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="cb_PreRpmFusion">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>40</y>
+        <width>241</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Installer le(s) dépot(s) RPM fusion</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_PostInstallation">
+     <attribute name="title">
+      <string>Post-installation</string>
+     </attribute>
+     <widget class="QGroupBox" name="gb_InterpreteurPostInstall">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>231</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Choisir un interpréteur</string>
+      </property>
+      <widget class="QRadioButton" name="rb_PostAucun">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Aucun</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostBash">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bash</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostPython2">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>30</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Python 2</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostPython3">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>50</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Python 3</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostPerl">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>30</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Perl</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostAutre">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Autre</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="edt_postinstall">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>40</y>
+        <width>201</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbl_PostInsertion">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>80</y>
+        <width>501</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Inserez ici la liste vos commandes de post installation.</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="ptedt_PostListeCommandes">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>1051</width>
+        <height>361</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="cb_PostEpel">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>10</y>
+        <width>171</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Installer le dépot EPEL.</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="cb_PostRpmFusion">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>40</y>
+        <width>241</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Installer le(s) dépot(s) RPM fusion</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="gb_PostRpmFusion">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>10</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Dépots RPM Fusion</string>
+      </property>
+      <widget class="QRadioButton" name="rb_PostRpmFree">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>20</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Dépot free</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PostRpmFusion</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostRpmNonFree">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Dépot non free</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PostRpmFusion</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="rb_PostDeux">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>20</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Les deux</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PostRpmFusion</string>
+       </attribute>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1050</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichiers">
+    <property name="title">
+     <string>Fichiers</string>
+    </property>
+    <addaction name="actionNouveau_fichier"/>
+    <addaction name="actionOuvrir_un_fichier"/>
+    <addaction name="actionSauvegarder"/>
+    <addaction name="actionSauvegarder_sous"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuiter"/>
+   </widget>
+   <widget class="QMenu" name="menuA_propos">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+    <addaction name="actionA_propos"/>
+   </widget>
+   <addaction name="menuFichiers"/>
+   <addaction name="menuA_propos"/>
+  </widget>
+  <action name="actionOuvrir_un_fichier">
+   <property name="text">
+    <string>Ouvrir un fichier</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionNouveau_fichier">
+   <property name="text">
+    <string>Nouveau fichier</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder">
+   <property name="text">
+    <string>Sauvegarder</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionQuiter">
+   <property name="text">
+    <string>Quiter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder_sous">
+   <property name="text">
+    <string>Sauvegarder sous</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionA_propos">
+   <property name="text">
+    <string>A propos</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="bg_distribution"/>
+  <buttongroup name="bg_PreRpmFusion"/>
+  <buttongroup name="bg_PostRpmFusion"/>
+ </buttongroups>
+</ui>
