@@ -46,16 +46,29 @@ class anacontux(QtWidgets.QMainWindow):
         # Séléction du 1 er onglet par défaut.
         self.ui.tab_anacontux.setCurrentIndex(0)
 
-        # Centrage de la fenetre sur l'écran.
+        # Déclaration des variables globale
+        global ChoixDistrib
+        global ChiffrePasswd
+        global HeureGmt
+        global PreEpelIsInstalled
+        global PreRpmFusionIsInstalled
+        global PostEpelIsInstalled
+        global PostRpmFusionIsInstalled
+
+        #  Initialisation de variables globale
+        ChoixDistrib = -1
+        ChiffrePasswd = False
+        HeureGmt = False
+        PreEpelIsInstalled = False
+        PreRpmFusionIsInstalled = False
+        PostEpelIsInstalled = False
+        PostRpmFusionIsInstalled = False
+
+        # Centrage de la fenetre sur l'écran principale.
         self.centrer_fenetre()
 
         # Ajout d'une icone à la fenetre.
         self.setWindowIcon(QtGui.QIcon("Tuxicon.ico"))
-
-        # Déclaration et initialisation de variables
-        ChoixDistrib = -1
-        ChiffrePasswd = False
-        HeureGmt = False
 
         # Evenement case cochée ou décochée affiche ou masque le mot de passe.
         self.ui.cb_affichePasswd.stateChanged.connect(self.affichepasse)
@@ -106,6 +119,18 @@ class anacontux(QtWidgets.QMainWindow):
         # Activation désactivation de la zone de saisie des commande pour la post-installation
         self.ui.rb_PostAucun.toggled.connect(self.PostAucun_click)
 
+        # Nettoyage de la liste des commandes de pré installation.
+        self.ui.btn_PreNettoyage.clicked.connect(self.PreNettoyage_click)
+
+        # Nettoyage de la liste des commandes de post installation.
+        self.ui.btn_PostNettoyage.clicked.connect(self.PostNettoyage_click)
+
+        # Activation désactivation de l'installation des dépots en pré installation.
+        self.ui.rb_PreBash.toggled.connect(self.PreBash_click)
+
+        # Activation désactivation de l'installation des dépots en post installation.
+        self.ui.rb_PostBash.toggled.connect(self.PostBash_click)
+
     # Init fenetre
     def centrer_fenetre(self):
         qtRectangle = self.frameGeometry()
@@ -116,6 +141,7 @@ class anacontux(QtWidgets.QMainWindow):
         enterPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
+
 # ************************ Config base *****************************************
     def affichepasse(self, state):
         if state == Qt.Checked:
@@ -320,14 +346,54 @@ class anacontux(QtWidgets.QMainWindow):
             self.ui.bg_PreRpmFusion.setExclusive(True)
 
     # Activation désactivation du choix EPEL et de la checkbox EPEL post install
+    # et ajout suppression du dépot dans la liste des dommandes.
     def PreEpel_click(self):
         self.ui.cb_PostEpel.setEnabled(not self.ui.cb_PreEpel.isChecked())
 
-    # Activation désactivation de la zone de saisie des commande pour la préinstallation
+        if self.ui.cb_PreEpel.isChecked():
+            curseur = QTextCursor(self.ui.ptedt_PreListeCommandes.document())
+            curseur.setPosition(0)
+            self.ui.ptedt_PreListeCommandes.setTextCursor(curseur)
+            if self.ui.rb_centos7.isChecked() or self.ui.rb_c7netinstall.isChecked():
+                self.ui.ptedt_PreListeCommandes.appendPlainText("# Installation du dépôt EPEL")
+                self.ui.ptedt_PreListeCommandes.appendPlainText("yum install epel-release -y")
+            elif self.ui.rb_centos8.isChecked() or self.ui.rb_c8netinstall.isChecked():
+                self.ui.ptedt_PreListeCommandes.appendPlainText("# Installation du dépôt EPEL")
+                self.ui.ptedt_PreListeCommandes.appendPlainText("dnf install epel-release -y")
+            elif self.ui.rb_fedora.isChecked():
+                self.ui.cb_PreEpel.setChecked(False)
+                AfficheMessages("Installation Impossible.", "Le dépôt EPEL n'est disponnible que pour centos 7 ou 8.",QMessageBox.Information ,QMessageBox.Ok)
+            else:
+                self.ui.cb_PreEpel.setChecked(False)
+                AfficheMessages("Erreur d'installation.", "Aucune distribution n'a été selectionnée.",QMessageBox.Critical ,QMessageBox.Ok)
+        else:
+            pass
+
+    # Activation désactivation de la zone de saisie. des commandes pour la préinstallation
     def PreAucun_click(self):
+        self.ui.btn_PreSupprimer.setEnabled(not self.ui.rb_PreAucun.isChecked())
+        self.ui.btn_PreNettoyage.setEnabled(not self.ui.rb_PreAucun.isChecked())
         self.ui.ptedt_PreListeCommandes.setEnabled(not self.ui.rb_PreAucun.isChecked())
         self.ui.ptedt_PreListeCommandes.clear()
-        # self.ui.ptedt_PostListeCommandes.setEnabled(True)
+
+    # Activation désactivation des commandes d'installation des dépots.
+    def PreBash_click(self):
+        if self.ui.rb_PreBash.isChecked() and not self.ui.rb_PostBash.isChecked():
+            self.ui.cb_PreEpel.setEnabled(True)
+            self.ui.cb_PreRpmFusion.setEnabled(True)
+        else:
+            self.ui.cb_PreEpel.setEnabled(False)
+            self.ui.cb_PreRpmFusion.setEnabled(False)
+
+        if not self.ui.rb_PreBash.isChecked():
+            self.ui.cb_PreEpel.setChecked(False)
+            self.ui.cb_PreRpmFusion.setChecked(False)
+
+    # Suppression de la liste des commandes par le bouton nettoyage.
+    def PreNettoyage_click(self):
+        self.ui.ptedt_PreListeCommandes.clear()
+        self.ui.cb_PreEpel.setChecked(False)
+        self.ui.cb_PreRpmFusion.setChecked(False)
 
 # ************************ Post installation ***********************************
     # Activation désactivation de la zone de saisie d'URL
@@ -353,14 +419,42 @@ class anacontux(QtWidgets.QMainWindow):
 
     # Activation désactivation de la zone de saisie des commande pour la préinstallation
     def PostAucun_click(self):
+        self.ui.btn_PostSupprimer.setEnabled(not self.ui.rb_PostAucun.isChecked())
+        self.ui.btn_PostNettoyage.setEnabled(not self.ui.rb_PostAucun.isChecked())
         self.ui.ptedt_PostListeCommandes.setEnabled(not self.ui.rb_PostAucun.isChecked())
         self.ui.ptedt_PostListeCommandes.clear()
 
+    # Activation désactivation des commandes d'installation des dépots.
+    def PostBash_click(self):
+        if self.ui.rb_PostBash.isChecked() and not self.ui.rb_PreBash.isChecked():
+            self.ui.cb_PostEpel.setEnabled(True)
+            self.ui.cb_PostRpmFusion.setEnabled(True)
+        else:
+            self.ui.cb_PostEpel.setEnabled(False)
+            self.ui.cb_PostRpmFusion.setEnabled(False)
 
-# ************************ Programe principal***********************************
+        if not self.ui.rb_PostBash.isChecked():
+            self.ui.cb_PostEpel.setChecked(False)
+            self.ui.cb_PostRpmFusion.setChecked(False)
+
+    # Suppression de la liste des commandes par le bouton nettoyage.
+    def PostNettoyage_click(self):
+        self.ui.ptedt_PostListeCommandes.clear()
+        #self.ui.ptedt_PostListeCommandes.appendPlainText("# Installation du dépot.\nyum install toto -y\n\n")
+
+
+# ************************ Programe principal **********************************
 if __name__ == "__main__":
     ''' Application principale '''
     app = QtWidgets.QApplication(sys.argv)
     w = anacontux()
     w.show()
     sys.exit(app.exec_())
+
+
+# ************************ Sauve Code ***********************************
+# mytext = self.textEdit.toPlainText() qplaintextedit
+# PreEpelIsInstalled = False
+# PreRpmFusionIsInstalled = False
+# PostEpelIsInstalled = False
+# PostRpmFusionIsInstalled = False

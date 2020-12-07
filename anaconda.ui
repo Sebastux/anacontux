@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1050</width>
+    <width>979</width>
     <height>509</height>
    </rect>
   </property>
@@ -34,7 +34,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>10</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -587,7 +587,7 @@
      <widget class="QGroupBox" name="gb_InterpreteurPreInstall">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>5</x>
         <y>0</y>
         <width>231</width>
         <height>71</height>
@@ -682,8 +682,8 @@
       <property name="geometry">
        <rect>
         <x>5</x>
-        <y>80</y>
-        <width>461</width>
+        <y>140</y>
+        <width>331</width>
         <height>16</height>
        </rect>
       </property>
@@ -698,9 +698,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>100</y>
+        <y>160</y>
         <width>1051</width>
-        <height>361</height>
+        <height>301</height>
        </rect>
       </property>
      </widget>
@@ -710,8 +710,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>40</y>
+        <x>5</x>
+        <y>80</y>
         <width>201</width>
         <height>23</height>
        </rect>
@@ -723,10 +723,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>10</y>
-        <width>251</width>
-        <height>61</height>
+        <x>370</x>
+        <y>70</y>
+        <width>131</width>
+        <height>81</height>
        </rect>
       </property>
       <property name="title">
@@ -767,8 +767,8 @@
       <widget class="QRadioButton" name="rb_PreDeux">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>20</y>
+         <x>5</x>
+         <y>60</y>
          <width>81</width>
          <height>21</height>
         </rect>
@@ -782,29 +782,88 @@
       </widget>
      </widget>
      <widget class="QCheckBox" name="cb_PreEpel">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>520</x>
+        <x>370</x>
         <y>10</y>
         <width>171</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
       </property>
       <property name="text">
        <string>Installer le dépot EPEL.</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="cb_PreRpmFusion">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>520</x>
+        <x>370</x>
         <y>40</y>
         <width>241</width>
         <height>21</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
+      </property>
       <property name="text">
        <string>Installer le(s) dépot(s) RPM fusion</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_PreNettoyage">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>10</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Vider la zone de saisie.</string>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Nettoyage</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_PreSupprimer">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>40</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Supprimer la ligne sélectionnée.</string>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Supprimer</string>
       </property>
      </widget>
     </widget>
@@ -815,7 +874,7 @@
      <widget class="QGroupBox" name="gb_InterpreteurPostInstall">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>5</x>
         <y>0</y>
         <width>231</width>
         <height>71</height>
@@ -912,8 +971,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>40</y>
+        <x>5</x>
+        <y>80</y>
         <width>201</width>
         <height>23</height>
        </rect>
@@ -923,8 +982,8 @@
       <property name="geometry">
        <rect>
         <x>5</x>
-        <y>80</y>
-        <width>501</width>
+        <y>140</y>
+        <width>341</width>
         <height>16</height>
        </rect>
       </property>
@@ -939,33 +998,45 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>100</y>
+        <y>160</y>
         <width>1051</width>
-        <height>361</height>
+        <height>301</height>
        </rect>
       </property>
      </widget>
      <widget class="QCheckBox" name="cb_PostEpel">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>520</x>
+        <x>370</x>
         <y>10</y>
         <width>171</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
       </property>
       <property name="text">
        <string>Installer le dépot EPEL.</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="cb_PostRpmFusion">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>520</x>
+        <x>370</x>
         <y>40</y>
         <width>241</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
       </property>
       <property name="text">
        <string>Installer le(s) dépot(s) RPM fusion</string>
@@ -977,31 +1048,15 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>10</y>
-        <width>251</width>
-        <height>61</height>
+        <x>370</x>
+        <y>70</y>
+        <width>131</width>
+        <height>81</height>
        </rect>
       </property>
       <property name="title">
        <string>Dépots RPM Fusion</string>
       </property>
-      <widget class="QRadioButton" name="rb_PostRpmFree">
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>20</y>
-         <width>91</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Dépot free</string>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">bg_PostRpmFusion</string>
-       </attribute>
-      </widget>
       <widget class="QRadioButton" name="rb_PostRpmNonFree">
        <property name="geometry">
         <rect>
@@ -1021,8 +1076,8 @@
       <widget class="QRadioButton" name="rb_PostDeux">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>20</y>
+         <x>5</x>
+         <y>60</y>
          <width>81</width>
          <height>21</height>
         </rect>
@@ -1034,6 +1089,69 @@
         <string notr="true">bg_PostRpmFusion</string>
        </attribute>
       </widget>
+      <widget class="QRadioButton" name="rb_PostRpmFree">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>20</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Dépot free</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">bg_PostRpmFusion</string>
+       </attribute>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="btn_PostSupprimer">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>40</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Supprimer la ligne sélectionnée.</string>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Supprimer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_PostNettoyage">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>10</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Vider la zone de saisie.</string>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Nettoyage</string>
+      </property>
      </widget>
     </widget>
    </widget>
@@ -1043,7 +1161,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1050</width>
+     <width>979</width>
      <height>20</height>
     </rect>
    </property>
@@ -1119,8 +1237,8 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="bg_distribution"/>
   <buttongroup name="bg_PreRpmFusion"/>
+  <buttongroup name="bg_distribution"/>
   <buttongroup name="bg_PostRpmFusion"/>
  </buttongroups>
 </ui>
