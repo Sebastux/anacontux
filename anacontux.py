@@ -25,9 +25,7 @@ __status__     = "alpha"
 # Directive(s) d'importation
 from kickstux import *
 from fonctions import *
-from PyQt5 import QtWidgets
 from PyQt5 import QtCore, QtGui
-from PyQt5.QtWidgets import QAction
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -46,23 +44,15 @@ class anacontux(QtWidgets.QMainWindow):
         # Séléction du 1 er onglet par défaut.
         self.ui.tab_anacontux.setCurrentIndex(0)
 
-        # Déclaration des variables globale
-        global ChoixDistrib
-        global ChiffrePasswd
-        global HeureGmt
-        global PreEpelIsInstalled
-        global PreRpmFusionIsInstalled
-        global PostEpelIsInstalled
-        global PostRpmFusionIsInstalled
-
         #  Initialisation de variables globale
-        ChoixDistrib = -1
-        ChiffrePasswd = False
-        HeureGmt = False
-        PreEpelIsInstalled = False
-        PreRpmFusionIsInstalled = False
-        PostEpelIsInstalled = False
-        PostRpmFusionIsInstalled = False
+        self.__ChoixDistrib = -1
+        self.__ChiffrePasswd = False
+        self.__HeureGmt = False
+        self.__PreEpelIsInstalled = False
+        self.__PreRpmFusionIsInstalled = False
+        self.__PostEpelIsInstalled = False
+        self.__PostRpmFusionIsInstalled = False
+        self.__CheminFichier = ""
 
         # Centrage de la fenetre sur l'écran principale.
         self.centrer_fenetre()
@@ -131,7 +121,32 @@ class anacontux(QtWidgets.QMainWindow):
         # Activation désactivation de l'installation des dépots en post installation.
         self.ui.rb_PostBash.toggled.connect(self.PostBash_click)
 
-    # Init fenetre
+        # Clique sur le bouton supprimer en pré install.
+        self.ui.btn_PreSupprimer.clicked.connect(self.PreSupprimer_click)
+
+        # Clique sur le bouton supprimer en post install.
+        self.ui.btn_PostSupprimer.clicked.connect(self.PostSupprimer_click)
+
+        # Clique sur le menu quitter
+        self.ui.actionQuiter.triggered.connect(qApp.quit)
+
+        # A propos de Qt
+        self.ui.actionA_propos_de_Qt.triggered.connect(qApp.aboutQt)
+
+        # Nouveau fichier
+        self.ui.actionNouveau_fichier.triggered.connect(self.NouveauFichier_click)
+
+        # Ouvrir un fichier
+        self.ui.actionOuvrir_un_fichier.triggered.connect(self.lecture_fichier)
+
+        # Enregistrer
+        self.ui.actionSauvegarder.triggered.connect(self.EnregistrerFichier_click)
+
+        # Enregistrer sous
+        self.ui.actionSauvegarder_sous.triggered.connect(self.EnregistrerFichierSous_click)
+
+# ************************ Fonctions divers ************************************
+    # Centrage de la fenetre dans l'écran principal
     def centrer_fenetre(self):
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
@@ -141,6 +156,14 @@ class anacontux(QtWidgets.QMainWindow):
         enterPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
+
+    # Enregistrement du fichier
+    def enregistrement_fichier(self):
+        pass
+
+    # Lecture du fichier
+    def lecture_fichier(self):
+        pass
 
 # ************************ Config base *****************************************
     def affichepasse(self, state):
@@ -155,7 +178,7 @@ class anacontux(QtWidgets.QMainWindow):
             self.ui.edt_verifPassword.setStyleSheet("background-color: red;")
 
     def chiffrement(self, state):
-        ChiffrePasswd = bool(state)
+        self.__ChiffrePasswd = bool(state)
 
     def ChoixGmt(self, state):
         HeureGmt = bool(state)
@@ -173,7 +196,7 @@ class anacontux(QtWidgets.QMainWindow):
             self.ui.edt_verifPassword.setStyleSheet("background-color: green;")
 
     def ChoixCentos7(self):
-        ChoixDistrib = 0
+        self.__ChoixDistrib = 0
         if self.ui.rb_centos7.isChecked():
             try:
                 self.ui.cbx_fuseaux.clear()
@@ -198,7 +221,7 @@ class anacontux(QtWidgets.QMainWindow):
                 self.ui.cbx_fuseaux.addItem("fuseaux horaires")
 
     def ChoixCentos7Netinstall(self):
-        ChoixDistrib = 1
+        self.__ChoixDistrib = 1
         self.ui.edt_UrlDepot.setEnabled(self.ui.rb_c7netinstall.isChecked())
         self.ui.edt_UrlDepot.clear()
         if self.ui.rb_c7netinstall.isChecked():
@@ -225,7 +248,7 @@ class anacontux(QtWidgets.QMainWindow):
                 self.ui.cbx_fuseaux.addItem("fuseaux horaires")
 
     def ChoixCentos8(self):
-        ChoixDistrib = 2
+        self.__ChoixDistrib = 2
         self.ui.edt_UrlDepot.setEnabled(False)
         if self.ui.rb_centos8.isChecked():
             try:
@@ -251,7 +274,7 @@ class anacontux(QtWidgets.QMainWindow):
                 self.ui.cbx_fuseaux.addItem("fuseaux horaires")
 
     def ChoixCentos8Netinstall(self):
-        ChoixDistrib = 3
+        self.__ChoixDistrib = 3
         self.ui.edt_UrlDepot.setEnabled(self.ui.rb_c8netinstall.isChecked())
         self.ui.edt_UrlDepot.clear()
         if self.ui.rb_c8netinstall.isChecked():
@@ -278,7 +301,7 @@ class anacontux(QtWidgets.QMainWindow):
                 self.ui.cbx_fuseaux.addItem("fuseaux horaires")
 
     def ChoixFedora(self):
-        ChoixDistrib = 4
+        self.__ChoixDistrib = 4
         if self.ui.rb_fedora.isChecked():
             # self.ui.edt_UrlDepot.setEnabled(False)
             # self.ui.edt_UrlDepot.clear()
@@ -350,25 +373,6 @@ class anacontux(QtWidgets.QMainWindow):
     def PreEpel_click(self):
         self.ui.cb_PostEpel.setEnabled(not self.ui.cb_PreEpel.isChecked())
 
-        if self.ui.cb_PreEpel.isChecked():
-            curseur = QTextCursor(self.ui.ptedt_PreListeCommandes.document())
-            curseur.setPosition(0)
-            self.ui.ptedt_PreListeCommandes.setTextCursor(curseur)
-            if self.ui.rb_centos7.isChecked() or self.ui.rb_c7netinstall.isChecked():
-                self.ui.ptedt_PreListeCommandes.appendPlainText("# Installation du dépôt EPEL")
-                self.ui.ptedt_PreListeCommandes.appendPlainText("yum install epel-release -y")
-            elif self.ui.rb_centos8.isChecked() or self.ui.rb_c8netinstall.isChecked():
-                self.ui.ptedt_PreListeCommandes.appendPlainText("# Installation du dépôt EPEL")
-                self.ui.ptedt_PreListeCommandes.appendPlainText("dnf install epel-release -y")
-            elif self.ui.rb_fedora.isChecked():
-                self.ui.cb_PreEpel.setChecked(False)
-                AfficheMessages("Installation Impossible.", "Le dépôt EPEL n'est disponnible que pour centos 7 ou 8.",QMessageBox.Information ,QMessageBox.Ok)
-            else:
-                self.ui.cb_PreEpel.setChecked(False)
-                AfficheMessages("Erreur d'installation.", "Aucune distribution n'a été selectionnée.",QMessageBox.Critical ,QMessageBox.Ok)
-        else:
-            pass
-
     # Activation désactivation de la zone de saisie. des commandes pour la préinstallation
     def PreAucun_click(self):
         self.ui.btn_PreSupprimer.setEnabled(not self.ui.rb_PreAucun.isChecked())
@@ -394,6 +398,10 @@ class anacontux(QtWidgets.QMainWindow):
         self.ui.ptedt_PreListeCommandes.clear()
         self.ui.cb_PreEpel.setChecked(False)
         self.ui.cb_PreRpmFusion.setChecked(False)
+
+    # Supprimer la ligne de commandes en cours
+    def PreSupprimer_click(self):
+        pass
 
 # ************************ Post installation ***********************************
     # Activation désactivation de la zone de saisie d'URL
@@ -440,8 +448,27 @@ class anacontux(QtWidgets.QMainWindow):
     # Suppression de la liste des commandes par le bouton nettoyage.
     def PostNettoyage_click(self):
         self.ui.ptedt_PostListeCommandes.clear()
-        #self.ui.ptedt_PostListeCommandes.appendPlainText("# Installation du dépot.\nyum install toto -y\n\n")
 
+    # Supprimer la ligne de commandes en cours
+    def PostSupprimer_click(self):
+        self.ui.ptedt_PostListeCommandes.toPlainText.remove()
+
+# ****************************** menus *****************************************
+    def NouveauFichier_click(self):
+        OuvertureFichier = QtWidgets.QFileDialog(self)
+        self.__CheminFichier = OuvertureFichier.getOpenFileName(self, "Ouvrir un fichier kickstart", "", "Fichier kickstart (*.cfg)")
+        self.__CheminFichier = self.__CheminFichier[0]
+
+    def EnregistrerFichier_click(self):
+        if len(self.__CheminFichier) == 0:
+            self.EnregistrerFichierSous_click()
+        else:
+            self.enregistrement_fichier()
+
+    def EnregistrerFichierSous_click(self):
+        SauvegardeFichier = QtWidgets.QFileDialog(self)
+        self.__CheminFichier = SauvegardeFichier.getSaveFileName(self, "Enregistrer un fichier kickstart", "", "Fichier kickstart (*.cfg)")
+        self.__CheminFichier = self.__CheminFichier[0]
 
 # ************************ Programe principal **********************************
 if __name__ == "__main__":
@@ -450,11 +477,3 @@ if __name__ == "__main__":
     w = anacontux()
     w.show()
     sys.exit(app.exec_())
-
-
-# ************************ Sauve Code ***********************************
-# mytext = self.textEdit.toPlainText() qplaintextedit
-# PreEpelIsInstalled = False
-# PreRpmFusionIsInstalled = False
-# PostEpelIsInstalled = False
-# PostRpmFusionIsInstalled = False
