@@ -34,7 +34,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -117,7 +117,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choix de la langue du système&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>Choix de la langue du système.</string>
        </property>
        <item>
         <property name="text">
@@ -180,7 +180,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choix du type de clavier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>Choix du type de clavier.</string>
        </property>
       </widget>
       <widget class="QComboBox" name="cbx_fuseaux">
@@ -193,7 +193,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choix du fuseau horaire ou est installée la machine.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>Choix du fuseau horaire ou est installée la machine.</string>
        </property>
        <item>
         <property name="text">
@@ -397,7 +397,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string extracomment="Le mot de passe sera chiffré puis sauvegarder dans le fichier d'auto réponse. "/>
+        <string extracomment="Le mot de passe sera chiffré puis sauvegarder dans le fichier d'auto réponse. ">Cochez cette case pour chiffre le mot de passe dans le fichier d'auto réponse.</string>
        </property>
        <property name="text">
         <string>Chiffrer le mot de passe.</string>
@@ -413,7 +413,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string extracomment="Affiche le mot de passe en clair au lieu d'afficher des points."/>
+        <string extracomment="Affiche le mot de passe en clair au lieu d'afficher des points.">Affiche le mot de passe et désactive la confirmation</string>
        </property>
        <property name="text">
         <string>Afficher le mot de passe.</string>
@@ -536,6 +536,9 @@
          <width>741</width>
          <height>23</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>Insérer ici l'url du dépot qui servira à l'installation netinstall 5centos 7 et 8 uniquement).</string>
        </property>
       </widget>
      </widget>
@@ -703,6 +706,12 @@
         <height>301</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string>Inserez ici vos commandes de pré installation sans les balises %pre ou % end</string>
+      </property>
+      <property name="placeholderText">
+       <string>Inserez ici vos commandes de pré installation sans les balises %post ou % end</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="edt_PreInstall">
       <property name="enabled">
@@ -715,6 +724,9 @@
         <width>201</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Inserez ici le chemin vers votre interpréteur</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="gb_PreRpmFusion">
@@ -794,7 +806,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
+       <string>Ne fonctionne qu'avec l'interpréteur bash et centos 7 ou 8. La commande sera ajoutée lors de la création du fichier.</string>
       </property>
       <property name="text">
        <string>Installer le dépot EPEL.</string>
@@ -813,7 +825,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
+       <string>Ne fonctionne qu'avec l'interpréteur bash. La commande sera ajoutée lors de la création du fichier.</string>
       </property>
       <property name="text">
        <string>Installer le(s) dépot(s) RPM fusion</string>
@@ -977,6 +989,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string>Inserez ici le chemin vers votre interpréteur</string>
+      </property>
      </widget>
      <widget class="QLabel" name="lbl_PostInsertion">
       <property name="geometry">
@@ -1003,6 +1018,12 @@
         <height>301</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Inserez ici vos commandes de post installation sans les balises %post ou % end</string>
+      </property>
      </widget>
      <widget class="QCheckBox" name="cb_PostEpel">
       <property name="enabled">
@@ -1017,7 +1038,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
+       <string>Ne fonctionne qu'avec l'interpréteur bash et centos 7 ou 8. La commande sera ajoutée lors de la création du fichier.</string>
       </property>
       <property name="text">
        <string>Installer le dépot EPEL.</string>
@@ -1036,7 +1057,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Ne fonctionne qu'avec l'interpréteur bash.</string>
+       <string>Ne fonctionne qu'avec l'interpréteur bash. La commande sera ajoutée lors de la création du fichier.</string>
       </property>
       <property name="text">
        <string>Installer le(s) dépot(s) RPM fusion</string>
@@ -1181,11 +1202,16 @@
      <string>Aide</string>
     </property>
     <addaction name="actionA_propos"/>
+    <addaction name="actionA_propos_de_Qt"/>
    </widget>
    <addaction name="menuFichiers"/>
    <addaction name="menuA_propos"/>
   </widget>
   <action name="actionOuvrir_un_fichier">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/open.png</normaloff>images/open.png</iconset>
+   </property>
    <property name="text">
     <string>Ouvrir un fichier</string>
    </property>
@@ -1194,6 +1220,10 @@
    </property>
   </action>
   <action name="actionNouveau_fichier">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/new_file.png</normaloff>images/new_file.png</iconset>
+   </property>
    <property name="text">
     <string>Nouveau fichier</string>
    </property>
@@ -1202,6 +1232,10 @@
    </property>
   </action>
   <action name="actionSauvegarder">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/save.jpg</normaloff>images/save.jpg</iconset>
+   </property>
    <property name="text">
     <string>Sauvegarder</string>
    </property>
@@ -1210,6 +1244,10 @@
    </property>
   </action>
   <action name="actionQuiter">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/exit.png</normaloff>images/exit.png</iconset>
+   </property>
    <property name="text">
     <string>Quiter</string>
    </property>
@@ -1218,6 +1256,10 @@
    </property>
   </action>
   <action name="actionSauvegarder_sous">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/save-as-file.png</normaloff>images/save-as-file.png</iconset>
+   </property>
    <property name="text">
     <string>Sauvegarder sous</string>
    </property>
@@ -1226,6 +1268,10 @@
    </property>
   </action>
   <action name="actionA_propos">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/about.png</normaloff>images/about.png</iconset>
+   </property>
    <property name="text">
     <string>A propos</string>
    </property>
@@ -1233,12 +1279,32 @@
     <string>F1</string>
    </property>
   </action>
+  <action name="actionpouette">
+   <property name="text">
+    <string>pouette</string>
+   </property>
+  </action>
+  <action name="actionA_propos_de_Qt">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/Qt.png</normaloff>images/Qt.png</iconset>
+   </property>
+   <property name="text">
+    <string>A propos de Qt</string>
+   </property>
+   <property name="toolTip">
+    <string>Affiche les information sur la version de Qt utilisée par le programme.</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="bg_PreRpmFusion"/>
-  <buttongroup name="bg_distribution"/>
   <buttongroup name="bg_PostRpmFusion"/>
+  <buttongroup name="bg_distribution"/>
+  <buttongroup name="bg_PreRpmFusion"/>
  </buttongroups>
 </ui>
