@@ -17,13 +17,22 @@ QMessageBox.Warning
 QMessageBox.Critical
 
 Liste des boutons :
+QMessageBox.Cancel
 QMessageBox.Ok
+QMessageBox.Help
 QMessageBox.Open
 QMessageBox.Save
-QMessageBox.Cancel
+QMessageBox.SaveAll
+QMessageBox.Discard
 QMessageBox.Close
+QMessageBox.Apply
+QMessageBox.Reset
 QMessageBox.Yes
+QMessageBox.YesToAll
 QMessageBox.No
+QMessageBox.NoToAll
+QMessageBox.NoButton
+QMessageBox.RestoreDefaults
 QMessageBox.Abort
 QMessageBox.Retry
 QMessageBox.Ignore
